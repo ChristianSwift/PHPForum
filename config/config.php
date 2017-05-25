@@ -4,14 +4,17 @@
 
 		'DB_TYPE'   => 'mysqli', // 数据库类型：本系统支持mysql和mysqli两种连接方式，php5.0以上版本均支持全新的mysqli方式
 		'DB_HOST'   => 'localhost', // 服务器地址
-		'DB_USER'   => 'tp3', // 用户名
-		'DB_PWD'    => 'tp3tp3tp3', // 密码
+		'DB_USER'   => 'myalbum', // 用户名
+		'DB_PWD'    => 'myalbumpasswd', // 密码
 		'DB_PORT'   => 3306, // 端口		
-		'DB_NAME'   => 'tp3', // 数据库名
+		'DB_NAME'   => 'myalbum', // 数据库名
 		'DB_PREFIX' => '', // 数据库表前缀
       
-      	//'GEETEST_AK' => 'fbbc37ecbab479cc41a0076606ddd695', //极验验证应用公钥
-      	//'GEETEST_SK' => '4195cbb0741c7529e2d7ab8a2f487f4b', //极验验证应用私钥
+        /*
+        极限验证API尚未完成集成，此处仅为预留参数区
+        */
+      	//'GEETEST_AK' => 'fbbc37ecbab479cc41a0076606ddd695', //极验滑动验证应用公钥
+      	//'GEETEST_SK' => '4195cbb0741c7529e2d7ab8a2f487f4b', //极验滑动验证应用私钥
       
       	//'DEFAULT_TIMEZONE' => 'PRC', //系统时区配置
       
