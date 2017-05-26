@@ -1,39 +1,39 @@
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html lang="zh">
 	<head>
-		<title>{$myalbum_name}</title>
+		<title><?php echo ($myalbum_name); ?></title>
 		<meta charset="utf-8" />
 		<meta name="theme-color" content="#FFB6C1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--[if lte IE 8]><script src="__PUBLIC__/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="__PUBLIC__/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="__PUBLIC__/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="__PUBLIC__/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="/PHPAlbum/Public/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/PHPAlbum/Public/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/PHPAlbum/Public/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/PHPAlbum/Public/css/ie8.css" /><![endif]-->
 		<!-- Scripts -->
-		<script src="__PUBLIC__/js/jquery.min.js"></script>
-		<script src="__PUBLIC__/js/jquery.poptrox.min.js"></script>
-		<script src="__PUBLIC__/js/skel.min.js"></script>
-		<script src="__PUBLIC__/js/util.js"></script>
-		<!--[if lte IE 8]><script src="__PUBLIC__/js/ie/respond.min.js"></script><![endif]-->
-		<script src="__PUBLIC__/js/main.js"></script>
-		<script src="__PUBLIC__/js/jquery.json2html.js"></script>
-		<script src="__PUBLIC__/js/json2html.js"></script>
+		<script src="/PHPAlbum/Public/js/jquery.min.js"></script>
+		<script src="/PHPAlbum/Public/js/jquery.poptrox.min.js"></script>
+		<script src="/PHPAlbum/Public/js/skel.min.js"></script>
+		<script src="/PHPAlbum/Public/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/PHPAlbum/Public/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/PHPAlbum/Public/js/main.js"></script>
+		<script src="/PHPAlbum/Public/js/jquery.json2html.js"></script>
+		<script src="/PHPAlbum/Public/js/json2html.js"></script>
 		<script>
 		  function disShowDialog() {
 			alert("站点管理员尚未开启此社交平台快速入口！");
 		  }
 		  function goTW() {
-			document.location="{$myalbum_twitter}";
+			document.location="<?php echo ($myalbum_twitter); ?>";
 		  }
 		  function goFC() {
-			document.location="{$myalbum_facebook}";
+			document.location="<?php echo ($myalbum_facebook); ?>";
 		  }
 		  function goGT() {
-			document.location="{$myalbum_github}";
+			document.location="<?php echo ($myalbum_github); ?>";
 		  }
           function postMsg() {
           	$.ajax({
-				url:'__ROOT__/index.php?c=ajax&a=postmsg',
+				url:'/PHPAlbum/index.php?c=ajax&a=postmsg',
 				type:'post',
 				dataType: 'xml',
 				data: {
@@ -79,7 +79,7 @@
 			<div id="wrapper">
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="javascript:void(0);"><strong>Album</strong> by {$myalbum_author}</a></h1>
+						<h1><a href="javascript:void(0);"><strong>Album</strong> by <?php echo ($myalbum_author); ?></a></h1>
 						<nav>
 							<ul>
 								<li><a href="#footer" class="icon fa-info-circle">关于相册</a></li>
@@ -95,7 +95,7 @@
 						</article>-->
                       <script>
                     	$.ajax({
-                    		url:'__ROOT__/index.php?c=ajax&a=getinfo',
+                    		url:'/PHPAlbum/index.php?c=ajax&a=getinfo',
                     		type:'post',
                       		dataType: 'xml',
                       		data: {
@@ -123,14 +123,14 @@
                 	</script>
 					</div>
               			<!-- background music -->
-			<div id="bgmusic" align="center" style="display: none"><audio src="{$myalbum_bgm}" controls autoplay loop height="100" width="100" type="audio/mp3"><br><embed height="100" width="100" src="<?=constant('AlbumBGMUrl')?>"><br></audio></div>
+			<div id="bgmusic" align="center" style="display: none"><audio src="<?php echo ($myalbum_bgm); ?>" controls autoplay loop height="100" width="100" type="audio/mp3"><br><embed height="100" width="100" src="<?=constant('AlbumBGMUrl')?>"><br></audio></div>
 			<!-- Footer -->
 			<footer id="footer" class="panel">
 				<div class="inner split">
 					<div>
 						<section>
 							<h2>相册说明</h2>
-							<p>{$myalbum_introduction}</p>
+							<p><?php echo ($myalbum_introduction); ?></p>
 						</section>
 						<section>
 							<h2>Follow me on ...</h2>
@@ -141,7 +141,7 @@
 							</ul>
 						</section>
 						<p class="copyright">
-							&copy; {$myalbum_copyright} Software by <a href="http://www.dingstudio.cn">DingStudio.Tech</a>.
+							&copy; <?php echo ($myalbum_copyright); ?> Software by <a href="http://www.dingstudio.cn">DingStudio.Tech</a>.
 						</p>
 					</div>
 					<div>
