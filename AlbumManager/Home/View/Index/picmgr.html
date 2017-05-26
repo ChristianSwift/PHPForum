@@ -3,9 +3,9 @@
 <html lang="zh">
   <head>
     <meta charset="utf-8">
-    <title>相册管理中心</title>
+    <title>相册内容管理|相册管理中心</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="相册管理系统|相册管理中心">
+    <meta name="description" content="相册内容管理|相册管理系统|相册管理中心">
     <meta name="author" content="DingStudio">
 
     <!-- Le styles -->
@@ -77,6 +77,92 @@
             });
           return false;
         }
+        function doAjaxUpload() {
+        if (confirm('确认上传？')) {
+        	$.ajax({
+        		url:'__ROOT__/index.php?c=ajax&a=upload',
+           		type:'post',
+            	dataType: 'xml',
+          		data: {
+					full_url: $('#full_url').val(),
+              		thumb_url: $('#thumb_url').val(),
+              		img_description: $('#img_description').val(),
+              		upload_time: $('#upload_time').val()
+				},
+            	async: false,
+            	success: function (ResponseText) {
+            		var code = '';
+                	$(ResponseText).find('think').each(
+                  	function () {
+                    	code += $(this).find('code').text();
+                  	}
+                	);
+                	if (code == 200) {
+                  		alert("恭喜您，相片添加成功！");
+                  		document.location="__ROOT__/admin.php?a=picmgr";
+                	}
+                	else if (code == 403) {
+                  		alert("抱歉，请确认已填写所有必填项后重试！");
+                	}
+                	else if (code == 405) {
+                  		alert("非法的调用方法！请使用POST方式提交相关数据。");
+                	}
+                	else if (code == 500) {
+                  		alert("远程服务器发生异常，无法与后端数据库建立有效连接句柄！请联系站点管理员解决此问题。");
+                	}
+                	else {
+                  		alert("服务器返回未知句柄编号，请检查本地网络状态是否稳定！");
+                	}
+              	},
+              	error: function(){
+                	alert("与后端服务器无法取得联系，注销请求发送失败！请稍后重试。");
+              	}
+        	});
+        }
+      	return false;
+      }
+      function doAjaxRemove(pid) {
+        if (confirm('确认删除？')) {
+        	$.ajax({
+        		url:'__ROOT__/index.php?c=ajax&a=remove',
+           		type:'post',
+            	dataType: 'xml',
+          		data: {
+					id: pid,
+              		type: 'photo'
+				},
+            	async: false,
+            	success: function (ResponseText) {
+            		var code = '';
+                	$(ResponseText).find('think').each(
+                  	function () {
+                    	code += $(this).find('code').text();
+                  	}
+                	);
+                	if (code == 200) {
+                  		alert("恭喜您，相片移除成功！");
+                  		document.location="__ROOT__/admin.php?a=picmgr";
+                	}
+                	else if (code == 403) {
+                  		alert("抱歉，请确认已填写所有必填项后重试！");
+                	}
+                	else if (code == 405) {
+                  		alert("非法的调用方法！请使用POST方式提交相关数据。");
+                	}
+                	else if (code == 500) {
+                  		alert("抱歉，相片移除失败。请稍后重试！（建议刷新当前页面，也许当前您正在浏览过期页面，而相片已经被删除。）");
+                	}
+                	else {
+                  		alert("服务器返回未知句柄编号，请检查本地网络状态是否稳定！");
+                	}
+              	},
+              	error: function(){
+                	alert("与后端服务器无法取得联系，注销请求发送失败！请稍后重试。");
+              	}
+        	});
+        }
+      	return false;
+      }
     </script>
   </head>
 
@@ -90,7 +176,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">相册管理中心</a>
+          <a class="brand" href="__ROOT__/" title="返回前台">相册管理中心</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="__ROOT__/admin.php">最新动态</a></li>
@@ -131,13 +217,13 @@
 
     <div class="container">
 
-      <h1>相册最新动态</h1>
+      <h1>相册内容管理</h1>
       <p>
-      Latest album status
+      Album Content Manager
       </p>
       <div id="uploader">
         <h2>相片上传</h2>
-        <form method="post" action="">
+        <form method="post" action="" onsubmit="return doAjaxUpload()">
         
         	<table class="table table-bordered table-condensed">
         		<thead>
@@ -196,7 +282,7 @@
 			},
 			async: false,
 			success: function (ResponseText) {
-				var response_str = "<table class='table table-bordered table-hover table-striped table-condensed' style='margin-top:-15px'><tr><td>本地输出序号</td><td>远程资源ID</td><td>资源完整URL</td><td>资源缩略图URL</td><td>资源信息简介</td><td>资源上传时间</td></tr>";
+				var response_str = "<table class='table table-bordered table-hover table-striped table-condensed' style='margin-top:-15px'><tr><td>本地输出序号</td><td>远程资源ID</td><td>资源完整URL</td><td>资源缩略图URL</td><td>资源信息简介</td><td>资源上传时间</td><td>操作</td></tr>";
                 var i = 1;
 				$(ResponseText).find('item').each(
 					function () {
@@ -205,7 +291,7 @@
                        	var turl = $(this).find('turl').text();
                        	var dinfo = $(this).find('dinfo').text();
                        	var mtime = $(this).find('mtime').text();
-                       	response_str += "<tr><td>" + i + "</td><td>" + id + "</td><td><a href='" + furl + "'>" + furl.substr(0,50) + "</a></td><td><a href='" + turl + "'>" + turl.substr(0,50) + "</a></td><td>" + dinfo + "</td><td>" + mtime + "</td></tr>";
+                       	response_str += "<tr><td>" + i + "</td><td>" + id + "</td><td><a href='" + furl + "'>" + furl.substr(0,50) + "</a></td><td><a href='" + turl + "'>" + turl.substr(0,50) + "</a></td><td>" + dinfo + "</td><td>" + mtime + "</td><td><a href='javascript:void(0);' onclick='return doAjaxRemove(" + id +")'>删除</a></td></tr>";
                        	i=i+1;
 					}
 				);

@@ -3,9 +3,9 @@
 <html lang="zh">
   <head>
     <meta charset="utf-8">
-    <title>相册管理中心</title>
+    <title>用户中心|相册管理中心</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="相册管理系统|相册管理中心">
+    <meta name="description" content="用户中心|相册管理系统|相册管理中心">
     <meta name="author" content="DingStudio">
 
     <!-- Le styles -->
@@ -89,7 +89,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">相册管理中心</a>
+          <a class="brand" href="__ROOT__/" title="返回前台">相册管理中心</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="__ROOT__/admin.php">最新动态</a></li>
@@ -130,10 +130,41 @@
 
     <div class="container">
 
-      <h1>相册最新动态</h1>
+      <h1>用户中心</h1>
       <p>
-      Latest album status
+      User Center
       </p>
+      
+      <hr><br>
+      <div id="box"></div>
+      <script>
+      	$.ajax({
+           	url:'__ROOT__/admin.php?c=UserManager&a=pullUserList',
+           	type:'post',
+           	dataType: 'xml',
+            data: {
+				act: 'full',
+				sid: 'null'
+			},
+			async: false,
+			success: function (ResponseText) {
+				var response_str = "<table class='table table-bordered table-hover table-striped table-condensed' style='margin-top:-15px'><tr><td>用户UID</td><td>用户名</td><td>用户邮箱</td><td>操作</td></tr>";
+				$(ResponseText).find('item').each(
+					function () {
+            	   		var id = $(this).find('uid').text();
+						var name = $(this).find('username').text();
+                       	var mail = $(this).find('email').text();
+                       	response_str += "<tr><td>" + id + "</td><td>" + name + "</a></td><td>" + mail + "</td><td><a href='__ROOT__/admin.php?c=UserManager&a=index&uid=" + id + "'>编辑</a></td></tr>";
+					}
+				);
+				response_str += "</table>";
+				$("#box").append(response_str);
+			},
+            error: function(){
+        		alert("获取失败");
+        	}
+        });
+    </script>
 
     </div> <!-- /container -->
 

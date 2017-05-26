@@ -3,9 +3,9 @@
 <html lang="zh">
   <head>
     <meta charset="utf-8">
-    <title>相册管理中心</title>
+    <title>相册留言管理|相册管理中心</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="相册管理系统|相册管理中心">
+    <meta name="description" content="相册留言管理|相册管理系统|相册管理中心">
     <meta name="author" content="DingStudio">
 
     <!-- Le styles -->
@@ -77,8 +77,47 @@
             });
            return false;
         }
-        function doCmtDel() {
-        	return false;
+        function doCmtDel(cid) {
+        	if (confirm('确认删除？')) {
+        		$.ajax({
+        			url:'__ROOT__/index.php?c=ajax&a=remove',
+           			type:'post',
+            		dataType: 'xml',
+          			data: {
+						id: cid,
+              			type: 'comment'
+					},
+            		async: false,
+            		success: function (ResponseText) {
+            			var code = '';
+                		$(ResponseText).find('think').each(
+                  		function () {
+                    		code += $(this).find('code').text();
+                  		}
+                		);
+                		if (code == 200) {
+                  			alert("恭喜您，留言移除成功！");
+                  			document.location="__ROOT__/admin.php?a=comments";
+                		}
+                		else if (code == 403) {
+                  			alert("系统异常，请刷新页面后重试！");
+                		}
+                		else if (code == 405) {
+                  			alert("非法的调用方法！请使用POST方式提交相关数据。");
+                		}
+                		else if (code == 500) {
+                  			alert("抱歉，相片移除失败。请稍后重试！（建议刷新当前页面，也许当前您正在浏览过期页面，而相片已经被删除。）");
+                		}
+                		else {
+                  			alert("服务器返回未知句柄编号，请检查本地网络状态是否稳定！");
+                		}
+              		},
+              		error: function(){
+                		alert("与后端服务器无法取得联系，注销请求发送失败！请稍后重试。");
+              		}
+        		});
+        	}
+      		return false;
         }
     </script>
   </head>
@@ -93,7 +132,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">相册管理中心</a>
+          <a class="brand" href="__ROOT__/" title="返回前台">相册管理中心</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="__ROOT__/admin.php">最新动态</a></li>
@@ -161,7 +200,7 @@
                        	var contact = $(this).find('contact').text();
                        	var message = $(this).find('message').text();
                        	var time = $(this).find('pushtime').text();
-                       	response_str += "<tr><td>" + i + "</td><td>" + cid + "</td><td>" + name + "</td><td>" + contact + "</td><td>" + message + "</td><td>" + time + "</td><td><a href='javascript:void(0);' onclick='return doCmtDel()'>删除</a></td></tr>";
+                       	response_str += "<tr><td>" + i + "</td><td>" + cid + "</td><td>" + name + "</td><td>" + contact + "</td><td>" + message + "</td><td>" + time + "</td><td><a href='javascript:void(0);' onclick='return doCmtDel(" + cid + ")'>删除</a></td></tr>";
                        	i=i+1;
 					}
 				);
