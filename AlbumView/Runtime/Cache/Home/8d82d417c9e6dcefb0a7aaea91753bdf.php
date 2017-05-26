@@ -5,19 +5,19 @@
 		<meta charset="utf-8" />
 		<meta name="theme-color" content="#FFB6C1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--[if lte IE 8]><script src="/album/Public/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="/album/Public/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="/album/Public/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="/album/Public/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="/PHPAlbum/Public/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/PHPAlbum/Public/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/PHPAlbum/Public/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/PHPAlbum/Public/css/ie8.css" /><![endif]-->
 		<!-- Scripts -->
-		<script src="/album/Public/js/jquery.min.js"></script>
-		<script src="/album/Public/js/jquery.poptrox.min.js"></script>
-		<script src="/album/Public/js/skel.min.js"></script>
-		<script src="/album/Public/js/util.js"></script>
-		<!--[if lte IE 8]><script src="/album/Public/js/ie/respond.min.js"></script><![endif]-->
-		<script src="/album/Public/js/main.js"></script>
-		<script src="/album/Public/js/jquery.json2html.js"></script>
-		<script src="/album/Public/js/json2html.js"></script>
+		<script src="/PHPAlbum/Public/js/jquery.min.js"></script>
+		<script src="/PHPAlbum/Public/js/jquery.poptrox.min.js"></script>
+		<script src="/PHPAlbum/Public/js/skel.min.js"></script>
+		<script src="/PHPAlbum/Public/js/util.js"></script>
+		<!--[if lte IE 8]><script src="/PHPAlbum/Public/js/ie/respond.min.js"></script><![endif]-->
+		<script src="/PHPAlbum/Public/js/main.js"></script>
+		<script src="/PHPAlbum/Public/js/jquery.json2html.js"></script>
+		<script src="/PHPAlbum/Public/js/json2html.js"></script>
 		<script>
 		  function disShowDialog() {
 			alert("站点管理员尚未开启此社交平台快速入口！");
@@ -33,7 +33,7 @@
 		  }
           function postMsg() {
           	$.ajax({
-				url:'/album/index.php?c=ajax&a=postmsg',
+				url:'/PHPAlbum/index.php?c=ajax&a=postmsg',
 				type:'post',
 				dataType: 'xml',
 				data: {
@@ -95,7 +95,7 @@
 						</article>-->
                       <script>
                     	$.ajax({
-                    		url:'/album/index.php?c=ajax&a=getinfo',
+                    		url:'/PHPAlbum/index.php?c=ajax&a=getinfo',
                     		type:'post',
                       		dataType: 'xml',
                       		data: {

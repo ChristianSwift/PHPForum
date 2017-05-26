@@ -138,16 +138,47 @@
       <div id="uploader">
         <h2>相片上传</h2>
         <form method="post" action="">
-        	<label for="full_url">原图URL：</label>
-        	<input type="text" name="full_url" id="full_url" placeholder="在此键入相片原图URL" />
-        	<label for="thumb_url">缩略图URL：</label>
-        	<input type="text" name="thumb_url" id="thumb_url" placeholder="在此键入相片缩略图URL" />
-        	<label for="img_description">相片简介：</label>
-        	<input type="text" name="img_description" id="img_description" placeholder="在此键入相片简介" />
-        	<label for="upload_time">上传时间：</label>
-        	<input type="text" name="upload_time" id="upload_time" placeholder="在此键入相片上传时间" value="{$upload_srvtime}" />
-        	<br>
-        	<input type="submit" name="btnUpload" id="btnUpload" value="添加" class="btn btn-default" />
+        
+        	<table class="table table-bordered table-condensed">
+        		<thead>
+        			<tr class="active">
+        				<th class="col-md-3">
+        					原图URL：
+        				</th>
+        				<th class="col-md-3">
+        					缩略图URL：
+        				</th>
+        				<th class="col-md-3">
+        					相片简介：
+        				</th>
+        				<th class="col-md-2">
+        					上传时间：
+        				</th>
+        				<th class="col-md-1">
+        					提交本图片:
+        				</th>
+        			</tr>
+        		</thead>
+				<tbody>
+					<tr>
+						<td class="col-md-3 text-center">
+							<input type="text" name="full_url" id="full-url" placeholder="在此输入相册的原图URL"/>
+						</td>
+						<td class="col-md-3 text-center">
+							<input type="text" name="thumb_url" id="thumb_url" placeholder="在此键入相片缩略图URL" />
+						</td>
+						<td class="col-md-3 text-center">
+							<input type="text" name="img_description" id="img_description" placeholder="在此键入相片简介" />
+						</td>
+						<td class="col-md-2 text-center">
+							<input type="text" name="upload_time" id="upload_time" placeholder="在此键入相片上传时间" value="{$upload_srvtime}" />
+						</td>
+						<td class="col-md-1 text-center">
+							<input type="submit" name="btnUpload" id="btnUpload" value="添加" class="btn btn-default" />
+						</td>
+					</tr>
+				</tbody>
+        	</table>
         </form>
       </div>
       <br><hr><br>

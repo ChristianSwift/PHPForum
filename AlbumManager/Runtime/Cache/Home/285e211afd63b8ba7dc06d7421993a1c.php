@@ -6,23 +6,23 @@
       	<meta name="theme-color" content="#6495ED">
 		<title>用户登录</title>
         <!-- CSS -->
-        <link rel="stylesheet" href="/album/Public/manager/css/reset.css">
-        <link rel="stylesheet" href="/album/Public/manager/css/supersized.css">
-        <link rel="stylesheet" type="text/css" href="/album/Public/manager/css/styles.css">
-        <link rel="stylesheet" href="/album/Public/manager/css/style2.css">
+        <link rel="stylesheet" href="/PHPAlbum/Public/manager/css/reset.css">
+        <link rel="stylesheet" href="/PHPAlbum/Public/manager/css/supersized.css">
+        <link rel="stylesheet" type="text/css" href="/PHPAlbum/Public/manager/css/styles.css">
+        <link rel="stylesheet" href="/PHPAlbum/Public/manager/css/style2.css">
 		<!-- <style type="text/css">
 		body,td,th { font-family: "Source Sans Pro", sans-serif; }
 		/* body { background-color: #2B2B2B; } */
 		</style> -->
       	<!-- Javascript -->
-        <script src="/album/Public/manager/js/jquery-1.8.2.min.js"></script>
-      	<script src="/album/Public/manager/js/supersized.3.2.7.min.js"></script>
-      	<script src="/album/Public/manager/js/scripts.js"></script>
-      	<script src="/album/Public/js/md5.js"></script>
+        <script src="/PHPAlbum/Public/manager/js/jquery-1.8.2.min.js"></script>
+      	<script src="/PHPAlbum/Public/manager/js/supersized.3.2.7.min.js"></script>
+      	<script src="/PHPAlbum/Public/manager/js/scripts.js"></script>
+      	<script src="/PHPAlbum/Public/js/md5.js"></script>
       	<script>
       		function doAjaxLogin() {
             	$.ajax({
-                	url:'/album/admin.php?c=Login&a=ajaxLogin',
+                	url:'/PHPAlbum/admin.php?c=Login&a=ajaxLogin',
                 	type:'post',
                 	dataType: 'xml',
                 	data: {
@@ -39,7 +39,7 @@
 						);
                       	if (code == 200) {
                         	alert("恭喜您，用户登录成功！");
-                          	document.location="/album/admin.php";
+                          	document.location="/PHPAlbum/admin.php";
                         }
                       	else if (code == 401) {
                         	alert("抱歉，用户名或密码不正确。请重试！");
@@ -73,7 +73,7 @@
 					<form class="form" action="" method="post" onsubmit="return doAjaxLogin()">
 						<input type="text" name="username" id="username" placeholder="键入账号" />
 						<input type="password" name="userpwd" id="userpwd" placeholder="键入密码" />
-						<input type="submit" id="login-button" value="立即登录" /><input type="button" id="reg-button" value="没有账号？点此注册" onclick="document.location='/album/admin.php?c=Regsiter';" />
+						<input type="submit" id="login-button" value="立即登录" /><input type="button" id="reg-button" value="没有账号？点此注册" onclick="document.location='/PHPAlbum/admin.php?c=Regsiter';" />
 					</form>
 				</div>
 			</div>
@@ -102,9 +102,9 @@
         			// Components
         			slide_links        : 'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
         			slides             : [    // Slideshow Images
-                                 		{image : '/album/Public/manager/img/backgrounds/1.jpg'},
-                                 		{image : '/album/Public/manager/img/backgrounds/2.jpg'},
-                                 		{image : '/album/Public/manager/img/backgrounds/3.jpg'}
+                                 		{image : '/PHPAlbum/Public/manager/img/backgrounds/1.jpg'},
+                                 		{image : '/PHPAlbum/Public/manager/img/backgrounds/2.jpg'},
+                                 		{image : '/PHPAlbum/Public/manager/img/backgrounds/3.jpg'}
                    	]
                   
     			});
