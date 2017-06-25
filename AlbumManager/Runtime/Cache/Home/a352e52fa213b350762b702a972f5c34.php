@@ -6,19 +6,19 @@
       	<meta name="theme-color" content="#6495ED">
 		<title>用户信息编辑</title>
         <!-- CSS -->
-        <link rel="stylesheet" href="/PHPAlbum/Public/manager/css/reset.css">
-        <link rel="stylesheet" href="/PHPAlbum/Public/manager/css/supersized.css">
-        <link rel="stylesheet" type="text/css" href="/PHPAlbum/Public/manager/css/styles.css">
-        <link rel="stylesheet" href="/PHPAlbum/Public/manager/css/style2.css">
+        <link rel="stylesheet" href="/Public/manager/css/reset.css">
+        <link rel="stylesheet" href="/Public/manager/css/supersized.css">
+        <link rel="stylesheet" type="text/css" href="/Public/manager/css/styles.css">
+        <link rel="stylesheet" href="/Public/manager/css/style2.css">
 		<!-- <style type="text/css">
 		body,td,th { font-family: "Source Sans Pro", sans-serif; }
 		/* body { background-color: #2B2B2B; } */
 		</style> -->
       	<!-- Javascript -->
-        <script src="/PHPAlbum/Public/manager/js/jquery-1.8.2.min.js"></script>
-      	<script src="/PHPAlbum/Public/manager/js/supersized.3.2.7.min.js"></script>
-      	<script src="/PHPAlbum/Public/manager/js/scripts.js"></script>
-      	<script src="/PHPAlbum/Public/js/md5.js"></script>
+        <script src="/Public/manager/js/jquery-1.8.2.min.js"></script>
+      	<script src="/Public/manager/js/supersized.3.2.7.min.js"></script>
+      	<script src="/Public/manager/js/scripts.js"></script>
+      	<script src="/Public/js/md5.js"></script>
 	</head>
 	<body>
         <div class="page-container">	           
@@ -60,9 +60,9 @@
         			// Components
         			slide_links        : 'blank',    // Individual links for each slide (Options: false, 'num', 'name', 'blank')
         			slides             : [    // Slideshow Images
-                                 		{image : '/PHPAlbum/Public/manager/img/backgrounds/1.jpg'},
-                                 		{image : '/PHPAlbum/Public/manager/img/backgrounds/2.jpg'},
-                                 		{image : '/PHPAlbum/Public/manager/img/backgrounds/3.jpg'}
+                                 		{image : '/Public/manager/img/backgrounds/1.jpg'},
+                                 		{image : '/Public/manager/img/backgrounds/2.jpg'},
+                                 		{image : '/Public/manager/img/backgrounds/3.jpg'}
                    	]
                   
     			});

@@ -1,2 +1,5 @@
 AlbumManager/Runtime
 AlbumView/Runtime
+Utils/Runtime
+Public/Uploads/*/*
+*.log

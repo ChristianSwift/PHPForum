@@ -9,46 +9,46 @@
     <meta name="author" content="DingStudio">
 
     <!-- Le styles -->
-    <link href="/PHPAlbum/Public/manager/css/bootstrap.css" rel="stylesheet">
+    <link href="/Public/manager/css/bootstrap.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
-    <link href="/PHPAlbum/Public/manager/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/Public/manager/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="/PHPAlbum/Public/manager/js/html5shiv.js"></script>
+      <script src="/Public/manager/js/html5shiv.js"></script>
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/PHPAlbum/Public/manager/img/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/PHPAlbum/Public/manager/img/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/PHPAlbum/Public/manager/img/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/PHPAlbum/Public/manager/img/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="/PHPAlbum/Public/manager/img/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Public/manager/img/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Public/manager/img/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Public/manager/img/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/Public/manager/img/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/Public/manager/img/favicon.png">
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/PHPAlbum/Public/manager/js/jquery.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-transition.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-alert.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-modal.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-dropdown.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-scrollspy.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-tab.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-tooltip.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-popover.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-button.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-collapse.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-carousel.js"></script>
-    <script src="/PHPAlbum/Public/manager/js/bootstrap-typeahead.js"></script>
+    <script src="/Public/manager/js/jquery.js"></script>
+    <script src="/Public/manager/js/bootstrap-transition.js"></script>
+    <script src="/Public/manager/js/bootstrap-alert.js"></script>
+    <script src="/Public/manager/js/bootstrap-modal.js"></script>
+    <script src="/Public/manager/js/bootstrap-dropdown.js"></script>
+    <script src="/Public/manager/js/bootstrap-scrollspy.js"></script>
+    <script src="/Public/manager/js/bootstrap-tab.js"></script>
+    <script src="/Public/manager/js/bootstrap-tooltip.js"></script>
+    <script src="/Public/manager/js/bootstrap-popover.js"></script>
+    <script src="/Public/manager/js/bootstrap-button.js"></script>
+    <script src="/Public/manager/js/bootstrap-collapse.js"></script>
+    <script src="/Public/manager/js/bootstrap-carousel.js"></script>
+    <script src="/Public/manager/js/bootstrap-typeahead.js"></script>
     <script>
         function doAjaxLogout() {
             $.ajax({
-              url:'/PHPAlbum/admin.php?c=Login&a=ajaxLogout',
+              url:'/admin.php?c=Login&a=ajaxLogout',
               type:'get',
               dataType: 'xml',
               async: false,
@@ -61,11 +61,11 @@
                 );
                 if (code == 200) {
                   alert("恭喜您，用户注销成功！");
-                  document.location="/PHPAlbum/admin.php?c=Login";
+                  document.location="/admin.php?c=Login";
                 }
                 else if (code == 403) {
                   alert("抱歉，当前没有有效的登录会话，无需再次注销！");
-                  document.location="/PHPAlbum/admin.php?c=Login";
+                  document.location="/admin.php?c=Login";
                 }
                 else {
                   alert("服务器返回未知句柄编号，请检查本地网络状态是否稳定！");
@@ -89,14 +89,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/PHPAlbum/" title="返回前台">相册管理中心</a>
+          <a class="brand" href="/" title="返回前台">相册管理中心</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href="/PHPAlbum/admin.php">最新动态</a></li>
-              <li><a href="/PHPAlbum/admin.php?a=picmgr">相册管理</a></li>
-              <li><a href="/PHPAlbum/admin.php?a=comments">留言管理</a></li>
-              <li class="active"><a href="/PHPAlbum/admin.php?a=usercenter">用户中心</a></li>
-              <li><a href="/PHPAlbum/admin.php?a=settings">相册设置</a></li>
+              <li><a href="/admin.php">最新动态</a></li>
+              <li><a href="/admin.php?a=picmgr">相册管理</a></li>
+              <li><a href="/admin.php?a=comments">留言管理</a></li>
+              <li class="active"><a href="/admin.php?a=usercenter">用户中心</a></li>
+              <li><a href="/admin.php?a=settings">相册设置</a></li>
               <li><a href="javascript:void(0);" data-toggle="modal" data-target="#myModal">退出登录</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -139,7 +139,7 @@
       <div id="box"></div>
       <script>
       	$.ajax({
-           	url:'/PHPAlbum/admin.php?c=UserManager&a=pullUserList',
+           	url:'/admin.php?c=UserManager&a=pullUserList',
            	type:'post',
            	dataType: 'xml',
             data: {
@@ -154,7 +154,7 @@
             	   		var id = $(this).find('uid').text();
 						var name = $(this).find('username').text();
                        	var mail = $(this).find('email').text();
-                       	response_str += "<tr><td>" + id + "</td><td>" + name + "</a></td><td>" + mail + "</td><td><a href='/PHPAlbum/admin.php?c=UserManager&a=index&uid=" + id + "'>编辑</a></td></tr>";
+                       	response_str += "<tr><td>" + id + "</td><td>" + name + "</a></td><td>" + mail + "</td><td><a href='/admin.php?c=UserManager&a=index&uid=" + id + "'>编辑</a></td></tr>";
 					}
 				);
 				response_str += "</table>";
